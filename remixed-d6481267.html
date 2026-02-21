@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Thiago Veículos Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#00e677",
+        "bg-dark": "#0a0a0a",
+        "surface": "#161b18",
+        "surface-light": "#1f2622",
+      },
+      fontFamily: {
+        "display": ["Inter", "sans-serif"]
+      },
+      borderRadius: {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "3rem",
+        "full": "9999px"
+      },
+    },
+  },
+}
+</script>
+<style>
+*{-webkit-tap-highlight-color:transparent;box-sizing:border-box}
+html,body{margin:0;padding:0;overscroll-behavior:none}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e2e8f0;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(0,230,119,.3)}
+.glass{background:rgba(10,10,10,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.glass-nav{background:rgba(22,27,24,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,230,119,.08)}
+.glass-card{background:rgba(22,27,24,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+.neon-glow{box-shadow:0 0 18px rgba(0,230,119,.35)}
+.neon-glow-sm{box-shadow:0 0 10px rgba(0,230,119,.2)}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+.page{display:none;opacity:0;transition:opacity .3s ease}
+.page.active{display:block;opacity:1}
+.pulse-ring{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.15)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.anim-fade-up{animation:fadeUp .6s ease both}
+.anim-fade-in{animation:fadeIn .5s ease both}
+.anim-slide-in{animation:slideIn .5s ease both}
+.anim-scale-in{animation:scaleIn .4s ease both}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}.delay-5{animation-delay:.5s}.delay-6{animation-delay:.6s}
+input:focus{outline:none}
+.range-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:rgba(255,255,255,.08);outline:none}
+.range-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:#00e677;cursor:pointer;box-shadow:0 0 12px rgba(0,230,119,.4)}
+.btn-primary{background:#00e677;color:#0a0a0a;font-weight:800;transition:all .15s ease}
+.btn-primary:active{transform:scale(.96)}
+.btn-surface{background:#161b18;border:1px solid rgba(255,255,255,.08);color:#e2e8f0;font-weight:700;transition:all .15s ease}
+.btn-surface:active{transform:scale(.96)}
+.img-placeholder{background:linear-gradient(135deg,#161b18 0%,#1a2e24 100%)}
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE: HOME ===================== -->
+<div class="page active" id="page-home">
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg-dark">
+        <span class="material-symbols-outlined font-bold text-xl">directions_car</span>
+      </div>
+      <div>
+        <h1 class="text-sm font-black tracking-tight leading-none uppercase italic">Thiago Veículos</h1>
+        <div class="flex items-center gap-1.5 mt-0.5">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Premium Live</span>
+        </div>
+      </div>
+    </div>
+    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface border border-primary/10">
+      <span class="material-symbols-outlined text-slate-100">notifications</span>
+    </button>
+  </nav>
+
+  <main class="pt-20 pb-28">
+    <!-- Hero -->
+    <section class="px-4 py-6 anim-scale-in">
+      <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden">
+        <img class="absolute inset-0 w-full h-full object-cover brightness-[.45]" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80" alt="SUV premium"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6 w-full">
+          <h2 class="text-[2.5rem] font-black leading-[1.05] tracking-tight mb-3 anim-fade-up">
+            Seu próximo carro <span class="text-primary italic">perfeito</span> está aqui
+          </h2>
+          <p class="text-slate-300 text-sm font-medium mb-6 max-w-[80%] anim-fade-up delay-1">
+            Veículos selecionados com garantia e procedência exclusiva em João Pessoa.
+          </p>
+          <button onclick="navigate('estoque')" class="btn-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 neon-glow anim-fade-up delay-2">
+            <span>Ver Estoque Completo</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <section class="px-4 mb-8 anim-fade-up delay-2">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <span class="material-symbols-outlined text-primary">search</span>
+        </div>
+        <input class="block w-full pl-12 pr-4 py-4 bg-surface border-none rounded-full text-slate-100 placeholder:text-slate-500 focus:ring-2 focus:ring-primary/50 transition-all text-sm" placeholder="Buscar por HB20, Renegade, Spin..." type="text"/>
+      </div>
+      <div class="flex gap-3 mt-5 overflow-x-auto pb-2 no-scrollbar">
+        <button class="px-5 py-2.5 rounded-full bg-primary text-bg-dark font-bold text-sm whitespace-nowrap">Todos</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface border border-primary/10 text-slate-300 font-semibold text-sm whitespace-nowrap">SUVs</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface border border-primary/10 text-slate-300 font-semibold text-sm whitespace-nowrap">Sedans</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface border border-primary/10 text-slate-300 font-semibold text-sm whitespace-nowrap">Esportivos</button>
+        <button class="px-5 py-2.5 rounded-full bg-surface border border-primary/10 text-slate-300 font-semibold text-sm whitespace-nowrap">Hatchbacks</button>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <div class="px-4 mb-4 flex items-center justify-between anim-fade-up delay-3">
+      <h3 class="text-xl font-bold">Destaques da Semana</h3>
+      <a onclick="navigate('estoque')" class="text-primary text-xs font-bold uppercase tracking-widest cursor-pointer">Ver Mais</a>
+    </div>
+
+    <!-- Vehicle Cards -->
+    <div class="grid grid-cols-1 gap-6 px-4">
+      <!-- Card 1 -->
+      <div class="bg-surface rounded-xl overflow-hidden border border-white/5 relative group anim-fade-up delay-3" onclick="navigate('detalhe')">
+        <div class="absolute top-3 left-3 z-10">
+          <span class="bg-primary text-bg-dark text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter neon-glow-sm">Hot Deal</span>
+        </div>
+        <div class="aspect-video relative overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600&q=75" alt="Hyundai HB20"/>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <h4 class="text-lg font-bold leading-none">Hyundai HB20</h4>
+              <p class="text-slate-500 text-xs mt-1">1.0 Turbo Evolution • 2023</p>
+            </div>
+            <span class="text-primary font-black text-lg italic">R$ 84.900</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-slate-400 mt-4 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span><span>12.500 km</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">settings_input_component</span><span>Automático</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">local_gas_station</span><span>Flex</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-surface rounded-xl overflow-hidden border border-white/5 relative group anim-fade-up delay-4" onclick="navigate('detalhe')">
+        <div class="absolute top-3 left-3 z-10">
+          <span class="bg-white/10 backdrop-blur-md text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter border border-white/20">Destaque</span>
+        </div>
+        <div class="aspect-video relative overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=75" alt="Jeep Renegade"/>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <h4 class="text-lg font-bold leading-none">Jeep Renegade</h4>
+              <p class="text-slate-500 text-xs mt-1">S 1.3 Turbo 4x4 • 2022</p>
+            </div>
+            <span class="text-primary font-black text-lg italic">R$ 142.000</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-slate-400 mt-4 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span><span>28.000 km</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">settings_input_component</span><span>Automático</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">terrain</span><span>4x4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-surface rounded-xl overflow-hidden border border-white/5 relative group anim-fade-up delay-5" onclick="navigate('detalhe')">
+        <div class="aspect-video relative overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=75" alt="Chevrolet Spin"/>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <h4 class="text-lg font-bold leading-none">Chevrolet Spin</h4>
+              <p class="text-slate-500 text-xs mt-1">Premier 7 Lugares • 2021</p>
+            </div>
+            <span class="text-primary font-black text-lg italic">R$ 79.900</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-slate-400 mt-4 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">group</span><span>7 Lugares</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span><span>45.000 km</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">local_gas_station</span><span>Flex</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-surface rounded-xl overflow-hidden border border-white/5 relative group anim-fade-up delay-6" onclick="navigate('detalhe')">
+        <div class="absolute top-3 left-3 z-10">
+          <span class="bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Oportunidade</span>
+        </div>
+        <div class="aspect-video relative overflow-hidden">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=75" alt="Toyota Corolla"/>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <h4 class="text-lg font-bold leading-none">Toyota Corolla</h4>
+              <p class="text-slate-500 text-xs mt-1">XEi 2.0 Dynamic • 2023</p>
+            </div>
+            <span class="text-primary font-black text-lg italic">R$ 139.900</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-slate-400 mt-4 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">speed</span><span>18.000 km</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">settings_input_component</span><span>CVT</span></div>
+            <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">local_gas_station</span><span>Flex</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financing CTA -->
+    <section class="px-4 mt-8 anim-fade-up delay-4">
+      <div class="bg-primary rounded-xl p-6 relative overflow-hidden">
+        <div class="absolute -right-6 -bottom-6 w-36 h-36 bg-bg-dark/15 rounded-full blur-2xl"></div>
+        <div class="relative z-10">
+          <h4 class="text-bg-dark text-xl font-black mb-1">Realize seu Sonho</h4>
+          <p class="text-bg-dark/75 text-sm mb-4 font-medium leading-tight">Taxas exclusivas para veículos premium. Simule agora em 30 segundos.</p>
+          <button onclick="navigate('simulacao')" class="bg-bg-dark text-primary px-6 py-3 rounded-full font-black text-sm uppercase tracking-widest shadow-xl active:scale-95 transition-transform">
+            Simular Financiamento
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp FAB -->
+  <a class="fixed bottom-24 right-5 z-40 group" href="https://wa.me/5583999999999" target="_blank">
+    <div class="absolute inset-0 bg-primary/40 blur-xl group-hover:blur-2xl transition-all pulse-ring rounded-full"></div>
+    <div class="relative w-14 h-14 bg-primary rounded-full flex items-center justify-center text-bg-dark shadow-2xl active:scale-90 transition-transform">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </a>
+</div>
+
+<!-- ===================== PAGE: ESTOQUE ===================== -->
+<div class="page" id="page-estoque">
+  <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5 pb-4">
+    <div class="px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button onclick="navigate('home')" class="w-10 h-10 flex items-center justify-center rounded-full bg-surface active:scale-90 transition-transform">
+          <span class="material-symbols-outlined text-slate-100">chevron_left</span>
+        </button>
+        <h1 class="text-lg font-bold">Estoque</h1>
+      </div>
+      <button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface border border-primary/20">
+        <span class="material-symbols-outlined text-primary">tune</span>
+      </button>
+    </div>
+    <div class="px-4 mt-1">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <span class="material-symbols-outlined text-slate-500 text-xl">search</span>
+        </div>
+        <input class="block w-full pl-11 pr-4 py-3 bg-surface border-none rounded-2xl text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-primary/50 text-sm" placeholder="Marca, modelo ou versão..." type="text"/>
+      </div>
+    </div>
+    <div class="flex gap-2 mt-4 overflow-x-auto px-4 no-scrollbar">
+      <button class="px-4 py-2 rounded-full bg-primary text-bg-dark font-bold text-xs whitespace-nowrap">Todas Marcas</button>
+      <button class="px-4 py-2 rounded-full bg-surface border border-white/5 text-slate-400 font-semibold text-xs whitespace-nowrap">Até R$ 100k</button>
+      <button class="px-4 py-2 rounded-full bg-surface border border-white/5 text-slate-400 font-semibold text-xs whitespace-nowrap">SUV</button>
+      <button class="px-4 py-2 rounded-full bg-surface border border-white/5 text-slate-400 font-semibold text-xs whitespace-nowrap">Automático</button>
+      <button class="px-4 py-2 rounded-full bg-surface border border-white/5 text-slate-400 font-semibold text-xs whitespace-nowrap">2023+</button>
+    </div>
+  </header>
+
+  <main class="pt-48 pb-36">
+    <div class="px-4 mb-4 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-500 uppercase tracking-widest">42 Veículos encontrados</span>
+      <div class="flex items-center gap-1 text-xs font-bold text-primary">
+        <span>Relevância</span>
+        <span class="material-symbols-outlined text-sm">expand_more</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-6 px-4">
+      <!-- Audi Q3 -->
+      <div class="bg-surface rounded-3xl overflow-hidden border border-white/5 relative group" onclick="navigate('detalhe')">
+        <div class="absolute top-3 right-3 z-10">
+          <button class="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-white text-xl">favorite</span>
+          </button>
+        </div>
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&q=75" alt="Audi Q3"/>
+          <div class="absolute bottom-3 left-3 flex gap-2">
+            <span class="bg-primary/90 backdrop-blur-sm text-bg-dark text-[10px] font-black px-2 py-1 rounded-md uppercase">Novo</span>
+            <span class="bg-black/60 backdrop-blur-sm text-white text-[10px] font-black px-2 py-1 rounded-md uppercase">Garantia</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex justify-between items-start">
+            <div>
+              <h2 class="text-xl font-bold leading-tight">Audi Q3 Prestige</h2>
+              <p class="text-slate-500 text-xs font-medium mt-1 uppercase tracking-wider">2.0 TFSI Quattro • 2023</p>
+            </div>
+            <p class="text-primary font-black text-xl italic">R$ 254.900</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-5 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">speed</span><span class="text-[11px] font-semibold text-slate-300">8.400 km</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">settings_input_component</span><span class="text-[11px] font-semibold text-slate-300">Automático</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">local_gas_station</span><span class="text-[11px] font-semibold text-slate-300">Gasolina</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HB20 -->
+      <div class="bg-surface rounded-3xl overflow-hidden border border-white/5 relative group" onclick="navigate('detalhe')">
+        <div class="absolute top-3 right-3 z-10">
+          <button class="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10" onclick="event.stopPropagation()">
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1">favorite</span>
+          </button>
+        </div>
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600&q=75" alt="Hyundai HB20"/>
+          <div class="absolute bottom-3 left-3 flex gap-2">
+            <span class="bg-orange-500 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase">Oportunidade</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex justify-between items-start">
+            <div>
+              <h2 class="text-xl font-bold leading-tight">Hyundai HB20</h2>
+              <p class="text-slate-500 text-xs font-medium mt-1 uppercase tracking-wider">Platinum Plus • 2024</p>
+            </div>
+            <p class="text-primary font-black text-xl italic">R$ 108.900</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-5 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">speed</span><span class="text-[11px] font-semibold text-slate-300">0 km</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">settings_input_component</span><span class="text-[11px] font-semibold text-slate-300">Automático</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">local_gas_station</span><span class="text-[11px] font-semibold text-slate-300">Flex</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Renegade -->
+      <div class="bg-surface rounded-3xl overflow-hidden border border-white/5 relative group" onclick="navigate('detalhe')">
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=75" alt="Jeep Renegade"/>
+          <div class="absolute bottom-3 left-3 flex gap-2">
+            <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase">Único Dono</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex justify-between items-start">
+            <div>
+              <h2 class="text-xl font-bold leading-tight">Jeep Renegade</h2>
+              <p class="text-slate-500 text-xs font-medium mt-1 uppercase tracking-wider">Longitude T270 • 2022</p>
+            </div>
+            <p class="text-primary font-black text-xl italic">R$ 124.900</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-5 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">speed</span><span class="text-[11px] font-semibold text-slate-300">32.000 km</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">settings_input_component</span><span class="text-[11px] font-semibold text-slate-300">Automático</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">terrain</span><span class="text-[11px] font-semibold text-slate-300">4x2</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Corolla -->
+      <div class="bg-surface rounded-3xl overflow-hidden border border-white/5 relative group" onclick="navigate('detalhe')">
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=75" alt="Toyota Corolla"/>
+          <div class="absolute bottom-3 left-3 flex gap-2">
+            <span class="bg-primary/90 backdrop-blur-sm text-bg-dark text-[10px] font-black px-2 py-1 rounded-md uppercase">Revisado</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="flex justify-between items-start">
+            <div>
+              <h2 class="text-xl font-bold leading-tight">Toyota Corolla</h2>
+              <p class="text-slate-500 text-xs font-medium mt-1 uppercase tracking-wider">XEi 2.0 Dynamic • 2023</p>
+            </div>
+            <p class="text-primary font-black text-xl italic">R$ 139.900</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-5 border-t border-white/5 pt-4">
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">speed</span><span class="text-[11px] font-semibold text-slate-300">18.000 km</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">settings_input_component</span><span class="text-[11px] font-semibold text-slate-300">CVT</span></div>
+            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-500 text-lg">local_gas_station</span><span class="text-[11px] font-semibold text-slate-300">Flex</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Filter -->
+  <div class="fixed bottom-28 left-1/2 -translate-x-1/2 z-40">
+    <button class="bg-primary text-bg-dark px-6 py-3 rounded-full font-bold flex items-center gap-2 neon-glow shadow-2xl active:scale-95 transition-transform">
+      <span class="material-symbols-outlined text-xl">filter_list</span>
+      <span class="text-sm">Filtros Avançados</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===================== PAGE: DETALHE ===================== -->
+<div class="page" id="page-detalhe">
+  <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4 flex items-center justify-between pointer-events-none">
+    <button onclick="navigate('estoque')" class="w-10 h-10 flex items-center justify-center rounded-full glass-card pointer-events-auto active:scale-90 transition-transform">
+      <span class="material-symbols-outlined text-slate-100">arrow_back_ios_new</span>
+    </button>
+    <div class="flex gap-2 pointer-events-auto">
+      <button class="w-10 h-10 flex items-center justify-center rounded-full glass-card active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-slate-100">favorite</span>
+      </button>
+      <button class="w-10 h-10 flex items-center justify-center rounded-full glass-card active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-slate-100">share</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="pb-36">
+    <!-- Gallery -->
+    <section class="relative w-full aspect-square">
+      <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&q=80" alt="Jeep Renegade"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent"></div>
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1.5 glass rounded-full border border-white/10">
+        <div class="w-2 h-2 rounded-full bg-primary"></div>
+        <div class="w-2 h-2 rounded-full bg-white/30"></div>
+        <div class="w-2 h-2 rounded-full bg-white/30"></div>
+        <div class="w-2 h-2 rounded-full bg-white/30"></div>
+      </div>
+    </section>
+
+    <!-- Info -->
+    <section class="px-5 pt-6">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-primary/10 text-primary text-[10px] font-black px-2 py-0.5 rounded border border-primary/20 uppercase tracking-widest">Premium Selection</span>
+        <span class="bg-white/5 text-slate-400 text-[10px] font-bold px-2 py-0.5 rounded border border-white/10 uppercase">ID: #39281</span>
+      </div>
+      <h1 class="text-3xl font-black tracking-tight leading-tight">Jeep Renegade</h1>
+      <p class="text-slate-400 font-medium text-lg">S 1.3 Turbo 4x4 • 2022/2022</p>
+      <div class="mt-4 flex items-baseline gap-2">
+        <span class="text-primary text-4xl font-black italic tracking-tighter">R$ 142.000</span>
+        <span class="text-slate-500 text-sm font-medium line-through">R$ 149.900</span>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="flex gap-4 mt-8 overflow-x-auto no-scrollbar pb-2">
+        <div class="flex-shrink-0 bg-surface border border-white/5 p-4 rounded-2xl w-28 flex flex-col items-center text-center">
+          <span class="material-symbols-outlined text-primary mb-2">speed</span>
+          <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Quilometragem</span>
+          <span class="text-sm font-black mt-1">28.000 km</span>
+        </div>
+        <div class="flex-shrink-0 bg-surface border border-white/5 p-4 rounded-2xl w-28 flex flex-col items-center text-center">
+          <span class="material-symbols-outlined text-primary mb-2">settings_input_component</span>
+          <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Câmbio</span>
+          <span class="text-sm font-black mt-1">Automático</span>
+        </div>
+        <div class="flex-shrink-0 bg-surface border border-white/5 p-4 rounded-2xl w-28 flex flex-col items-center text-center">
+          <span class="material-symbols-outlined text-primary mb-2">terrain</span>
+          <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Tração</span>
+          <span class="text-sm font-black mt-1">4x4</span>
+        </div>
+        <div class="flex-shrink-0 bg-surface border border-white/5 p-4 rounded-2xl w-28 flex flex-col items-center text-center">
+          <span class="material-symbols-outlined text-primary mb-2">palette</span>
+          <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Cor</span>
+          <span class="text-sm font-black mt-1">Cinza Sting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description -->
+    <section class="px-5 mt-10">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <span class="w-1.5 h-6 bg-primary rounded-full"></span>Descrição do Veículo
+      </h2>
+      <div class="bg-surface/50 rounded-2xl p-5 border border-white/5">
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Veículo em estado de novo, único dono, com todas as revisões feitas em concessionária. Versão S topo de linha com tração 4x4 integral e teto solar panorâmico. Uma combinação perfeita de luxo, tecnologia e performance off-road para quem não abre mão do conforto na cidade.
+        </p>
+        <button class="mt-4 text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-1">
+          Ler descrição completa <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Technical Specs -->
+    <section class="px-5 mt-10">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <span class="w-1.5 h-6 bg-primary rounded-full"></span>Ficha Técnica
+      </h2>
+      <div class="space-y-0">
+        <div class="flex justify-between items-center py-3.5 border-b border-white/5"><span class="text-slate-500 text-sm">Motor</span><span class="text-sm font-bold">1.3 Turbo T270</span></div>
+        <div class="flex justify-between items-center py-3.5 border-b border-white/5"><span class="text-slate-500 text-sm">Potência (cv)</span><span class="text-sm font-bold">185 (E) / 180 (G)</span></div>
+        <div class="flex justify-between items-center py-3.5 border-b border-white/5"><span class="text-slate-500 text-sm">Torque (kgfm)</span><span class="text-sm font-bold">27,5</span></div>
+        <div class="flex justify-between items-center py-3.5 border-b border-white/5"><span class="text-slate-500 text-sm">Consumo Urbano</span><span class="text-sm font-bold">9,1 km/l (G)</span></div>
+        <div class="flex justify-between items-center py-3.5 border-b border-white/5"><span class="text-slate-500 text-sm">Aceleração 0-100</span><span class="text-sm font-bold">8,7s</span></div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="px-5 mt-10">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <span class="w-1.5 h-6 bg-primary rounded-full"></span>Itens de Série
+      </h2>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Teto Panorâmico</span></div>
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Park Assist</span></div>
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Ar Dual Zone</span></div>
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Banco de Couro</span></div>
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Som Premium</span></div>
+        <div class="flex items-center gap-2 bg-surface/30 p-3 rounded-xl border border-white/5"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-[12px] font-medium text-slate-300">Chave Presencial</span></div>
+      </div>
+      <button class="w-full mt-4 py-3 border border-primary/20 text-primary rounded-xl font-bold text-xs uppercase tracking-widest">Ver todos os 42 itens</button>
+    </section>
+  </main>
+
+  <!-- Bottom CTA -->
+  <div class="fixed bottom-0 left-0 right-0 glass px-4 pt-4 pb-10 z-[60] flex gap-3 border-t border-white/10">
+    <button onclick="navigate('simulacao')" class="flex-1 btn-surface py-4 rounded-2xl text-sm flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-[20px]">calculate</span>Simular Financiamento
+    </button>
+    <a href="https://wa.me/5583999999999" target="_blank" class="flex-1 btn-primary py-4 rounded-2xl text-sm neon-glow flex items-center justify-center gap-2 no-underline">
+      <span class="material-symbols-outlined text-[20px]">chat</span>Tenho Interesse
+    </a>
+  </div>
+</div>
+
+<!-- ===================== PAGE: SIMULAÇÃO ===================== -->
+<div class="page" id="page-simulacao">
+  <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5 px-4 h-16 flex items-center">
+    <button onclick="navigate('home')" class="w-10 h-10 flex items-center justify-center rounded-full active:bg-white/10 transition-colors">
+      <span class="material-symbols-outlined text-slate-100">arrow_back_ios_new</span>
+    </button>
+    <h1 class="flex-1 text-center font-bold text-lg mr-10">Simulação</h1>
+  </header>
+
+  <main class="pt-20 pb-10 px-6">
+    <div class="mb-10">
+      <div class="flex justify-between items-end mb-3">
+        <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Passo 1 de 2</span>
+        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest italic">Thiago Veículos</span>
+      </div>
+      <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full w-1/2 bg-primary neon-glow-sm rounded-full transition-all duration-500"></div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-3xl font-black tracking-tight leading-tight">Dados <span class="text-primary italic">Pessoais</span></h2>
+      <p class="text-slate-400 text-sm mt-2">Preencha com atenção para garantir as melhores taxas de aprovação.</p>
+    </div>
+
+    <div class="space-y-6">
+      <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Nome Completo</label>
+        <input class="glass-card w-full h-14 px-5 rounded-2xl text-slate-100 placeholder:text-slate-600 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="Ex: Thiago Silva Santos" type="text"/>
+      </div>
+      <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">CPF</label>
+        <input class="glass-card w-full h-14 px-5 rounded-2xl text-slate-100 placeholder:text-slate-600 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="000.000.000-00" type="text"/>
+      </div>
+      <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">E-mail</label>
+        <input class="glass-card w-full h-14 px-5 rounded-2xl text-slate-100 placeholder:text-slate-600 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="nome@email.com" type="email"/>
+      </div>
+      <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Celular (WhatsApp)</label>
+        <div class="relative">
+          <input class="glass-card w-full h-14 px-5 rounded-2xl text-slate-100 placeholder:text-slate-600 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="(83) 90000-0000" type="tel"/>
+          <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">check_circle</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex items-center justify-center gap-2 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+      <span class="material-symbols-outlined text-primary text-lg">verified_user</span>
+      <p class="text-[10px] font-medium text-slate-500 leading-tight">Seus dados estão protegidos por criptografia de ponta a ponta e seguem a LGPD.</p>
+    </div>
+
+    <div class="mt-12">
+      <button class="w-full h-16 btn-primary text-sm uppercase tracking-widest rounded-2xl flex items-center justify-center gap-3 neon-glow font-black">
+        <span>Continuar</span>
+        <span class="material-symbols-outlined font-bold">arrow_forward</span>
+      </button>
+      <button class="w-full mt-4 h-12 text-slate-500 font-bold text-xs uppercase tracking-widest active:text-slate-300 transition-colors">Salvar e Continuar Depois</button>
+    </div>
+  </main>
+
+  <!-- Background decorations -->
+  <div class="fixed top-1/2 -right-20 w-64 h-64 bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+  <div class="fixed -bottom-20 -left-20 w-80 h-80 bg-primary/10 blur-[150px] rounded-full -z-10 pointer-events-none"></div>
+</div>
+
+<!-- ===================== PAGE: SOBRE ===================== -->
+<div class="page" id="page-sobre">
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-bg-dark">
+        <span class="material-symbols-outlined font-bold">info</span>
+      </div>
+      <div>
+        <h1 class="text-sm font-black tracking-tight leading-none uppercase italic">Sobre a Thiago</h1>
+        <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Institucional</span>
+      </div>
+    </div>
+    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface border border-primary/10">
+      <span class="material-symbols-outlined text-slate-100">share</span>
+    </button>
+  </nav>
+
+  <main class="pt-20 pb-32">
+    <!-- Hero -->
+    <section class="px-4 mb-8">
+      <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-6">
+        <img class="absolute inset-0 w-full h-full object-cover brightness-75" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=75" alt="Showroom"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4">
+          <span class="bg-primary/20 backdrop-blur-md text-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-primary/30">Nossa Sede</span>
+        </div>
+      </div>
+      <h2 class="text-3xl font-black mb-4">Referência em <span class="text-primary italic">Premium</span> em João Pessoa</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-6">Com mais de 15 anos de mercado, a Thiago Veículos consolidou-se como o destino principal para quem busca exclusividade, procedência e um atendimento verdadeiramente diferenciado.</p>
+    </section>
+
+    <!-- History -->
+    <section class="px-4 mb-10">
+      <div class="bg-surface/50 border border-white/5 rounded-2xl p-6 relative overflow-hidden">
+        <div class="absolute -right-4 -top-4 opacity-5">
+          <span class="material-symbols-outlined text-[120px]">history_edu</span>
+        </div>
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span class="text-primary material-symbols-outlined">auto_awesome</span>Nossa História
+        </h3>
+        <div class="space-y-4 text-sm text-slate-300">
+          <p>Fundada por Thiago Silva, a loja nasceu do desejo de transformar a experiência de compra de um seminovo em algo prazeroso e seguro.</p>
+          <p>O que começou com apenas 3 veículos em estoque, hoje conta com um showroom moderno no coração de João Pessoa, selecionando apenas o que há de melhor no mercado automotivo nacional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="px-4 mb-10">
+      <h3 class="text-xl font-bold mb-5 px-1">Nossa Equipe</h3>
+      <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+        <div class="flex-none w-44 bg-surface border border-white/5 rounded-2xl p-4 text-center">
+          <div class="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-primary/30 p-1 bg-surface-light flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-3xl">person</span>
+          </div>
+          <h4 class="font-bold text-sm">Thiago Silva</h4>
+          <p class="text-primary text-[10px] uppercase font-bold tracking-widest mt-1">Fundador & CEO</p>
+        </div>
+        <div class="flex-none w-44 bg-surface border border-white/5 rounded-2xl p-4 text-center">
+          <div class="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-white/10 p-1 bg-surface-light flex items-center justify-center">
+            <span class="material-symbols-outlined text-slate-400 text-3xl">person</span>
+          </div>
+          <h4 class="font-bold text-sm">Ricardo Mendes</h4>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Consultor Premium</p>
+        </div>
+        <div class="flex-none w-44 bg-surface border border-white/5 rounded-2xl p-4 text-center">
+          <div class="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-white/10 p-1 bg-surface-light flex items-center justify-center">
+            <span class="material-symbols-outlined text-slate-400 text-3xl">person</span>
+          </div>
+          <h4 class="font-bold text-sm">Ana Oliveira</h4>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Pós-venda</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="px-4 mb-10">
+      <h3 class="text-xl font-bold mb-5 px-1">Fale Conosco</h3>
+      <div class="grid grid-cols-1 gap-3">
+        <a class="bg-surface border border-white/5 rounded-2xl p-5 flex items-center justify-between active:scale-[.97] transition-transform" href="https://wa.me/5583999999999" target="_blank">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div><p class="text-xs text-slate-500 font-bold uppercase tracking-wider">WhatsApp</p><p class="font-bold text-slate-100">(83) 99999-9999</p></div>
+          </div>
+          <span class="material-symbols-outlined text-primary/40">arrow_forward_ios</span>
+        </a>
+        <a class="bg-surface border border-white/5 rounded-2xl p-5 flex items-center justify-between active:scale-[.97] transition-transform" href="tel:08000000000">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined">call</span></div>
+            <div><p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Telefone</p><p class="font-bold text-slate-100">0800 000 0000</p></div>
+          </div>
+          <span class="material-symbols-outlined text-primary/40">arrow_forward_ios</span>
+        </a>
+        <a class="bg-surface border border-white/5 rounded-2xl p-5 flex items-center justify-between active:scale-[.97] transition-transform" href="mailto:contato@thiagoveiculos.com.br">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined">mail</span></div>
+            <div><p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Email</p><p class="font-bold text-slate-100">contato@thiagoveiculos.com.br</p></div>
+          </div>
+          <span class="material-symbols-outlined text-primary/40">arrow_forward_ios</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="px-4 mb-10">
+      <h3 class="text-xl font-bold mb-5 px-1">Localização</h3>
+      <div class="w-full aspect-video rounded-2xl overflow-hidden border border-white/5 bg-surface mb-4">
+        <iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15835.590924962!2d-34.8453488!3d-7.1122557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace8113645a271%3A0xc34371465229344!2sMana%C3%ADra%2C%20Jo%C3%A3o%20Pessoa%20-%20PB!5e0!3m2!1spt-BR!2sbr" style="border:0;filter:invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);" width="100%"></iframe>
+      </div>
+      <div class="flex items-start gap-3 bg-surface p-4 rounded-xl border border-white/5">
+        <span class="material-symbols-outlined text-primary">location_on</span>
+        <div>
+          <p class="text-sm font-bold">Av. João Câncio da Silva, 450</p>
+          <p class="text-xs text-slate-500">Manaíra, João Pessoa - PB, 58038-341</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section class="px-4 mb-12">
+      <div class="flex justify-center gap-6 py-6 border-t border-white/5">
+        <a class="w-12 h-12 rounded-full bg-surface border border-white/5 flex items-center justify-center text-slate-400 hover:text-primary transition-colors" href="#">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a class="w-12 h-12 rounded-full bg-surface border border-white/5 flex items-center justify-center text-slate-400 hover:text-primary transition-colors" href="#">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a class="w-12 h-12 rounded-full bg-surface border border-white/5 flex items-center justify-center text-slate-400 hover:text-primary transition-colors" href="#">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+        </a>
+      </div>
+      <p class="text-[10px] text-center text-slate-600 font-bold uppercase tracking-[0.2em]">© 2025 Thiago Veículos Premium</p>
+    </section>
+  </main>
+</div>
+
+<!-- ===================== PAGE: VENDER ===================== -->
+<div class="page" id="page-vender">
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button onclick="navigate('home')" class="w-10 h-10 flex items-center justify-center rounded-full bg-surface border border-white/5 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-slate-100">arrow_back_ios_new</span>
+      </button>
+      <div>
+        <h1 class="text-xs font-black tracking-tight leading-none uppercase italic">Thiago Veículos</h1>
+        <span class="text-[10px] font-bold text-primary uppercase tracking-widest mt-1 block">Venda seu Carro</span>
+      </div>
+    </div>
+    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface border border-primary/10">
+      <span class="material-symbols-outlined text-slate-100">help_outline</span>
+    </button>
+  </nav>
+
+  <main class="pt-24 pb-32">
+    <header class="px-6 mb-10">
+      <h2 class="text-4xl font-black leading-tight tracking-tight mb-4">Venda seu carro <span class="text-primary italic">com a gente</span></h2>
+      <p class="text-slate-400 text-base leading-relaxed">Receba uma proposta justa em minutos e venda sem burocracia.</p>
+    </header>
+
+    <!-- Steps -->
+    <section class="px-6 mb-12">
+      <div class="grid grid-cols-1 gap-4">
+        <div class="flex items-center gap-4 bg-surface p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined">description</span></div>
+          <div><h4 class="font-bold text-sm">1. Preencha o Form</h4><p class="text-xs text-slate-500">Dados básicos do seu veículo.</p></div>
+        </div>
+        <div class="flex items-center gap-4 bg-surface p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined">analytics</span></div>
+          <div><h4 class="font-bold text-sm">2. Avaliação</h4><p class="text-xs text-slate-500">Nossa equipe analisa seu carro.</p></div>
+        </div>
+        <div class="flex items-center gap-4 bg-surface p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined">payments</span></div>
+          <div><h4 class="font-bold text-sm">3. Pagamento Rápido</h4><p class="text-xs text-slate-500">Dinheiro na conta sem demora.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="px-6">
+      <div class="bg-surface rounded-3xl p-6 border border-white/5">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-primary rounded-full"></span>Detalhes do Veículo
+        </h3>
+        <div class="space-y-5">
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Marca e Modelo</label>
+            <input class="w-full bg-surface-light border border-white/5 rounded-2xl py-4 px-5 focus:ring-1 focus:ring-primary focus:border-primary text-slate-100 placeholder:text-slate-600" placeholder="Ex: Hyundai HB20" type="text"/>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Ano</label>
+              <input class="w-full bg-surface-light border border-white/5 rounded-2xl py-4 px-5 focus:ring-1 focus:ring-primary focus:border-primary text-slate-100 placeholder:text-slate-600" placeholder="2023" type="number"/>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Quilometragem</label>
+              <input class="w-full bg-surface-light border border-white/5 rounded-2xl py-4 px-5 focus:ring-1 focus:ring-primary focus:border-primary text-slate-100 placeholder:text-slate-600" placeholder="KM" type="number"/>
+            </div>
+          </div>
+          <div class="space-y-3 mt-4">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Fotos do Veículo</label>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="aspect-square bg-surface-light border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center text-slate-500 active:bg-primary/5 transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-2xl">add_a_photo</span><span class="text-[10px] mt-1 font-bold">Frente</span>
+              </div>
+              <div class="aspect-square bg-surface-light border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center text-slate-500">
+                <span class="material-symbols-outlined text-2xl">add_a_photo</span><span class="text-[10px] mt-1 font-bold">Lado</span>
+              </div>
+              <div class="aspect-square bg-surface-light border-2 border-dashed border-white/10 rounded-2xl flex flex-col items-center justify-center text-slate-500">
+                <span class="material-symbols-outlined text-2xl">add_a_photo</span><span class="text-[10px] mt-1 font-bold">Interior</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-slate-500 italic px-1">Opcional: Envie fotos para uma avaliação mais precisa.</p>
+          </div>
+          <div class="pt-6">
+            <button class="w-full btn-primary py-5 rounded-2xl font-black text-lg uppercase tracking-tight neon-glow flex items-center justify-center gap-2">
+              <span>Enviar Proposta</span><span class="material-symbols-outlined font-black">send</span>
+            </button>
+            <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest">Retorno em até 24 horas úteis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust badges -->
+    <section class="px-6 mt-10 mb-8">
+      <div class="flex items-center justify-around opacity-40">
+        <div class="flex flex-col items-center gap-1"><span class="material-symbols-outlined text-xl">verified_user</span><span class="text-[8px] font-bold uppercase">Seguro</span></div>
+        <div class="flex flex-col items-center gap-1"><span class="material-symbols-outlined text-xl">gavel</span><span class="text-[8px] font-bold uppercase">Transparente</span></div>
+        <div class="flex flex-col items-center gap-1"><span class="material-symbols-outlined text-xl">speed</span><span class="text-[8px] font-bold uppercase">Rápido</span></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===================== BOTTOM TAB BAR (Global) ===================== -->
+<div id="tab-bar" class="fixed bottom-0 left-0 right-0 glass px-2 pb-8 pt-3 border-t border-white/5 flex justify-around items-center z-[70]">
+  <a onclick="navigate('home')" class="flex flex-col items-center gap-1 cursor-pointer tab-item" data-tab="home">
+    <span class="material-symbols-outlined tab-icon">home</span>
+    <span class="text-[10px] font-bold tracking-wide tab-label">Início</span>
+  </a>
+  <a onclick="navigate('estoque')" class="flex flex-col items-center gap-1 cursor-pointer tab-item" data-tab="estoque">
+    <span class="material-symbols-outlined tab-icon">garage</span>
+    <span class="text-[10px] font-medium tracking-wide tab-label">Estoque</span>
+  </a>
+  <a onclick="navigate('vender')" class="flex flex-col items-center gap-1 cursor-pointer tab-item" data-tab="vender">
+    <span class="material-symbols-outlined tab-icon">sell</span>
+    <span class="text-[10px] font-medium tracking-wide tab-label">Vender</span>
+  </a>
+  <a onclick="navigate('sobre')" class="flex flex-col items-center gap-1 cursor-pointer tab-item" data-tab="sobre">
+    <span class="material-symbols-outlined tab-icon">info</span>
+    <span class="text-[10px] font-medium tracking-wide tab-label">Sobre</span>
+  </a>
+</div>
+
+<script>
+// Navigation
+const pages = ['home','estoque','detalhe','simulacao','sobre','vender'];
+const tabMap = {home:'home',estoque:'estoque',detalhe:'estoque',simulacao:'home',sobre:'sobre',vender:'vender'};
+
+function navigate(page) {
+  // Hide all pages
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) { el.classList.remove('active'); }
+  });
+  // Show target
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'instant'});
+  }
+  // Update tabs
+  updateTabs(tabMap[page] || page);
+  // Show/hide tab bar for certain pages
+  const tabBar = document.getElementById('tab-bar');
+  if (page === 'simulacao' || page === 'detalhe') {
+    tabBar.style.display = 'none';
+  } else {
+    tabBar.style.display = 'flex';
+  }
+}
+
+function updateTabs(activeTab) {
+  document.querySelectorAll('.tab-item').forEach(item => {
+    const tab = item.dataset.tab;
+    const icon = item.querySelector('.tab-icon');
+    const label = item.querySelector('.tab-label');
+    if (tab === activeTab) {
+      icon.style.color = '#00e677';
+      icon.style.fontVariationSettings = "'FILL' 1";
+      label.style.color = '#00e677';
+      label.style.fontWeight = '700';
+    } else {
+      icon.style.color = '#64748b';
+      icon.style.fontVariationSettings = "'FILL' 0";
+      label.style.color = '#64748b';
+      label.style.fontWeight = '500';
+    }
+  });
+}
+
+// Init
+updateTabs('home');
+</script>
+
+</body>
+</html>
